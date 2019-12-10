@@ -8,7 +8,7 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
   login(user:any){
-    return this.http.post("http://localhost:3333/api/v1/auth/login",{
+    return this.http.post("http://159.203.122.238:3333/api/v1/auth/login",{
       email:user.email,
       password:user.password
     });
@@ -21,7 +21,7 @@ export class AuthService {
 
   usersOnline(){
     const user = JSON.parse(localStorage.getItem('auth'));
-    const endpoint = "http://localhost:3333/api/v1/users-online/"+user.id;
+    const endpoint = "http://159.203.122.238:3333/api/v1/users-online/"+user.id;
     return this.http.get(endpoint,{
       headers:{
         "Authorization":'bearer '+user.token
@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   logout(user:any){
-    const endpoint = "http://localhost:3333/api/v1/auth/logout";
+    const endpoint = "http://159.203.122.238:3333/api/v1/auth/logout";
     return this.http.post(endpoint,{
       user_id:user.id
     },{

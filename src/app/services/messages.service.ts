@@ -10,7 +10,7 @@ export class MessagesService {
   constructor(private http:HttpClient, private auth:AuthService) { }
 
   getMessages(conversation_id:string){
-    const endpoint = "http://localhost:3333/api/v1/messages/"+conversation_id;
+    const endpoint = "http://159.203.122.238:3333/api/v1/messages/"+conversation_id;
     const user     = JSON.parse(localStorage.getItem('auth'));
     return this.http.get(endpoint,{
       headers:{
@@ -20,7 +20,7 @@ export class MessagesService {
   }
 
   sendMessage(message,user_id,conversation_id){
-    const endpoint = "http://localhost:3333/api/v1/messages"
+    const endpoint = "http://159.203.122.238:3333/api/v1/messages"
     const user     = JSON.parse(localStorage.getItem('auth'));
     return this.http.post(endpoint,{
       message:message,

@@ -10,7 +10,7 @@ export class ConversationsService {
 
   getConversations(){
     const user = JSON.parse(localStorage.getItem('auth'))
-    const endpoint = "http://localhost:3333/api/v1/conversations/"+user.id;
+    const endpoint = "http://159.203.122.238:3333/api/v1/conversations/"+user.id;
     return this.http.get(endpoint,{
       headers:{
         "Authorization":"bearer "+user.token
@@ -20,7 +20,7 @@ export class ConversationsService {
 
   addConversation(user_one, user_two){ 
     const user = JSON.parse(localStorage.getItem('auth'))
-    const endpoint = "http://localhost:3333/api/v1/conversations";
+    const endpoint = "http://159.203.122.238:3333/api/v1/conversations";
     return this.http.post(endpoint,{
       user_one:user_one,
       user_two:user_two
